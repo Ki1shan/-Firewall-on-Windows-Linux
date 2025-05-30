@@ -1,0 +1,30 @@
+Windows Firewall Configuration
+
+Objective:
+   Configure and test basic firewall rules to allow or block traffic using Windows Firewall.
+
+Tools Used:
+   Windows Defender Firewall with Advanced Security
+
+Steps Performed:
+Opened Windows Firewall Configuration Tool
+   Accessed via Control Panel > System and Security > Windows Defender Firewall > Advanced settings
+
+Created a New Inbound Rule to Block Telnet (Port 23):
+   Went to Inbound Rules > New Rule
+   Selected Port, then TCP, and entered 23
+   Chose "Block the connection"
+   Applied to Domain, Private, and Public profiles
+   Named the rule: Block Telnet
+   Successfully created a rule to block Telnet connections on port 23
+
+Verified the Rule Exists:
+   Observed the rule listed under Inbound Rules
+   Screenshot taken for documentation
+
+Removed the Telnet Block Rule:
+   Navigated back to Inbound Rules
+   Located Block Telnet rule
+   Right-clicked and selected Delete
+   Confirmed deletion
+   Successfully restored original firewall settings

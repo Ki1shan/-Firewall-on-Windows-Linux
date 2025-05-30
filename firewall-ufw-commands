@@ -1,0 +1,38 @@
+Setting Up & Using UFW (Firewall) on Linux:
+     Firewalls are used to control incoming and outgoing network traffic. UFW (Uncomplicated Firewall) is a user-friendly command-line interface for managing iptables firewall rules in Linux.
+     
+What We Did:
+Installed and Enabled UFW
+    command : sudo apt install ufw -y
+    command : sudo ufw enable
+    This turns on the firewall to start filtering traffic.
+
+Checked Current Rules:
+    command : sudo ufw status numbered
+    To see what firewall rules are active.
+
+Blocked Telnet Port (23):
+    command : sudo ufw deny 23
+    This blocks all incoming traffic on port 23, which is commonly used by the insecure Telnet protocol.
+
+Tested the Block:
+    command : telnet localhost 23
+    We tried to connect to port 23 and got Connection refused, meaning the firewall is working correctly.
+
+Allowed SSH Port (22):
+    command : sudo ufw allow 22
+    This allows SSH connections so remote management is still possible and not blocked.
+
+Removed the Test Rule:
+    command : sudo ufw delete deny 23
+    To clean up and return the firewall to its original state.
+
+Why This Is Important:
+    Port 23 (Telnet) is unsecure and should usually be blocked.
+    Port 22 (SSH) is essential for secure remote access.
+    This exercise shows how specific ports can be allowed or denied, helping protect a system from unwanted access.
+
+How UFW Filters Traffic:
+    UFW filters traffic based on rules set by the user.
+    Rules can allow or deny incoming or outgoing connections based on port numbers.
+    It works on top of iptables but provides a much easier interface.
